@@ -10,9 +10,13 @@ interface MatchTimeProps {
 dayjs.extend(customParseFormat);
 
 export function MatchTime({ timeString }: MatchTimeProps) {
-  // const parsedTime = dayjs(timeString, 'DD.MM. HH:mm').format('DD/MM hh:mm A');
-  console.log(timeString);
-  const parsedTime = dayjs(timeString, 'DD.MM. HH:mm').format('DD/MM hh:mm A');
+  const parsedTime = dayjs(timeString, 'DD.MM. HH:mm');
 
-  return <>{parsedTime}</>;
+  if (!parsedTime.isValid()) {
+    return <>Unknown start time</>;
+  }
+
+  const formattedTime = parsedTime.format('DD/MM hh:mm A');
+
+  return <>{formattedTime}</>;
 }
