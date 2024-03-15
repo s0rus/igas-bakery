@@ -71,14 +71,15 @@ export function getBakeryStats(html: HtmlLike) {
 
       const opponentIndex = swiatekIndex === 0 ? 1 : 0;
       const opponentName = players[opponentIndex];
-
       const sets = v.resultString.split(', ');
       sets.forEach((set) => {
-        const [, opponentGames] = set.split('-');
-        if (opponentGames === '0') {
+        const [igasGames, opponentGames] = set.split('-');
+        const isNotScratch = igasGames === '6';
+
+        if (isNotScratch && opponentGames === '0') {
           acc.bagels++;
           acc.bageledOpponents[opponentName] = (acc.bageledOpponents[opponentName] || 0) + 1;
-        } else if (opponentGames === '1') {
+        } else if (isNotScratch && opponentGames === '1') {
           acc.baguettes++;
           acc.baguettedOpponents[opponentName] = (acc.baguettedOpponents[opponentName] || 0) + 1;
         }

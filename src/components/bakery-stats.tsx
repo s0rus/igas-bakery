@@ -57,7 +57,7 @@ export async function BakeryStats() {
           </div>
           <div>
             <p className='text-2xl md:text-5xl'>🥖</p>
-            <p className='md:text-5xl font-semibold text-primary'>baguettes</p>
+            <p className='md:text-5xl font-semibold text-primary'>breadsticks</p>
           </div>
         </div>
         <Separator className='my-2' />

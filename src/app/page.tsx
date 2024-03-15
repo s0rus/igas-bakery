@@ -1,4 +1,5 @@
 import { BakeryStats } from '@/components/bakery-stats';
+import { ContentLoading } from '@/components/content-loading';
 import { NextMatch } from '@/components/next-match';
 import { Suspense } from 'react';
 
@@ -11,7 +12,7 @@ export default async function Home() {
           <p>bakery</p>
           <p>2024</p>
         </div>
-        <Suspense fallback={'Loading...'}>
+        <Suspense fallback={<ContentLoading />}>
           <NextMatch />
           <BakeryStats />
         </Suspense>
