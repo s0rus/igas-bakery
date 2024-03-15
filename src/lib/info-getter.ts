@@ -6,9 +6,7 @@ export async function getSourceHTML() {
   try {
     const req = await fetch(SOURCE_URL, {
       method: 'GET',
-      next: {
-        revalidate: 3600,
-      },
+      cache: 'no-cache',
     });
 
     const html = await req.text();
